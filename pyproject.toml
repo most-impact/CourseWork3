@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "coursework3"
+version = "0.1.0"
+description = ""
+authors = ["Dmitriy Kurilko <dimakurilko0606@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.lint.dependencies]
+black = "^24.4.2"
+flake8 = "^7.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
