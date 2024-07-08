@@ -12,6 +12,7 @@ xlrd = "^2.0.1"
 python-dotenv = "^1.0.1"
 yfinance = "^0.2.40"
 pytest = "^8.2.2"
+freezegun = "^1.5.1"
 
 
 [tool.poetry.group.lint.dependencies]

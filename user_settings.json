@@ -1,0 +1,13 @@
+{
+  "currency": [
+    "USD",
+    "EUR"
+  ],
+  "stock": [
+    "AAPL",
+    "AMZN",
+    "GOOGL",
+    "MSFT",
+    "TSLA"
+  ]
+}

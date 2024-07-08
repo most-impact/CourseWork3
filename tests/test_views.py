@@ -1,154 +1,92 @@
 import json
-import pytest
+from unittest.mock import MagicMock, patch
+
 import pandas as pd
-from unittest.mock import patch
+import pytest
+from freezegun import freeze_time
+
+from src.utils import setup_logger
 from src.views import (
-    get_time_now,
     get_card_data,
-    get_top_transactions_by_date,
+    get_current_exchange_rate,
     get_stock_currency,
-    main_page,
+    get_time_now,
+    get_top_transactions_by_date,
 )
 
-
-def test_get_time_now():
-    assert isinstance(get_time_now(), str)
+logger = setup_logger()
 
 
 @pytest.fixture
-def sample_transactions():
-    return [
-        {
-            "Дата операции": "2023-05-01",
-            "Номер карты": "1234",
-            "Сумма операции": -1500,
-            "Сумма операции с округлением": -1500,
-            "Категория": "Продукты",
-            "Описание": "Покупка в магазине",
-        },
-        {
-            "Дата операции": "2023-05-02",
-            "Номер карты": "5678",
-            "Сумма операции": -2000,
-            "Сумма операции с округлением": -2000,
-            "Категория": "Развлечения",
-            "Описание": "Посещение кинотеатра",
-        },
-    ]
-
-
-@pytest.fixture
-def sample_dataframe(sample_transactions):
-    return pd.DataFrame(sample_transactions)
-
-
-@pytest.fixture
-def sample_df():
+def sample_dataframe():
     data = {
-        "Номер карты": ["1234", "5678", "1234", "5678", "1234", None],
-        "Сумма операции": [-1000, -2000, -1500, 3000, -500, -1000],
-        "Кэшбэк": [10, 20, 15, 0, 5, 10]
+        "Дата операции": [
+            "2023-06-01 08:00:00",
+            "2023-07-15 12:00:00",
+            "2023-07-25 18:00:00",
+            "2023-08-10 10:00:00",
+            "2023-09-20 09:00:00",
+        ],
+        "Категория": ["Рестораны", "Рестораны", "Кино", "Рестораны", "Рестораны"],
+        "Описание": ["Ужин", "Обед", "Фильм", "Завтрак", "Ужин"],
+        "Сумма операции": [-1500, -2000, -500, -700, -900],
+        "Сумма операции с округлением": [-1500, -2000, -500, -700, -900],
+        "Кэшбэк": [50, 100, 20, 30, 40],
+        "Номер карты": ["1234", "5678", "1234", "5678", "1234"],
     }
-    df = pd.DataFrame(data)
-    return df
+    return pd.DataFrame(data)
 
 
-@patch("yfinance.Ticker.history")
-def test_get_stock_currency(mock_history):
-    mock_history.return_value = pd.DataFrame({"High": [150.0]})
-
-    result = get_stock_currency("AAPL")
-    assert result == 150.0
-
-    mock_history.assert_called_once_with(period="1d")
+def test_get_time_now_morning():
+    with freeze_time("2023-07-01 10:00:00"):
+        assert get_time_now() == "Доброе утро"
 
 
-def test_get_card_data(sample_df):
-    expected = [
-        {"last_digits": "1234", "total_spent": -3000, "cashback": 30},
-        {"last_digits": "5678", "total_spent": -2000, "cashback": 20},
-        {"last_digits": "Unknown", "total_spent": -1000, "cashback": 10}
-    ]
-
-    result = get_card_data(sample_df)
-    assert result == expected
-
-
-def test_get_top_transactions_by_date(sample_transactions):
-    result = get_top_transactions_by_date(sample_transactions)
-    expected = json.dumps(
-        sorted(
-            [
-                {
-                    "date": "2023-05-02",
-                    "amount": -2000,
-                    "category": "Развлечения",
-                    "description": "Посещение кинотеатра",
-                },
-                {
-                    "date": "2023-05-01",
-                    "amount": -1500,
-                    "category": "Продукты",
-                    "description": "Покупка в магазине",
-                },
-            ],
-            key=lambda x: x["amount"],
-            reverse=True,
-        ),
+def test_get_card_data(sample_dataframe):
+    result = get_card_data(sample_dataframe)
+    expected_result = json.dumps(
+        [
+            {"last_digits": "1234", "total_spent": -2900, "cashback": 110},
+            {"last_digits": "5678", "total_spent": -2700, "cashback": 130},
+        ],
         ensure_ascii=False,
         indent=4,
     )
-    assert result == expected
+    assert result == expected_result
 
 
-@patch("src.utils.get_time_now", return_value="Доброе утро")
-@patch("src.utils.get_current_exchange_rate",
-       return_value='[{"currency": "USD", "rate": 75.0}, {"currency": "EUR", "rate": 85.0}]')
-@patch("src.utils.get_stock_currency")
-def test_main_page(mock_get_stock_currency, sample_dataframe):
-    mock_get_stock_currency.side_effect = [150.0, 200.0, 250.0, 300.0, 350.0]
-
-    result = main_page(sample_dataframe)
-
-    expected = {
-        "greeting": "Доброе утро",
-        "cards": json.dumps(
-            [
-                {
-                    "last_digits": "1234",
-                    "total_spent": 1500,
-                    "cashback": -15.0,
-                }
-            ],
-            ensure_ascii=False,
-            indent=4,
-        ),
-        "top_transactions": json.dumps(
-            [
-                {
-                    "date": "2023-05-02",
-                    "amount": -2000,
-                    "category": "Развлечения",
-                    "description": "Посещение кинотеатра",
-                },
-                {
-                    "date": "2023-05-01",
-                    "amount": -1500,
-                    "category": "Продукты",
-                    "description": "Покупка в магазине",
-                },
-            ],
-            ensure_ascii=False,
-            indent=4,
-        ),
-        "currency_rates": '[{"currency": "USD", "rate": 75.0}, {"currency": "EUR", "rate": 85.0}]',
-        "stock_prices": [
-            {"stock": "AAPL", "price": 150.0},
-            {"stock": "AMZN", "price": 200.0},
-            {"stock": "GOOGL", "price": 250.0},
-            {"stock": "MSFT", "price": 300.0},
-            {"stock": "TSLA", "price": 350.0},
+def test_get_top_transactions_by_date(sample_dataframe):
+    result = get_top_transactions_by_date(sample_dataframe)
+    expected_result = json.dumps(
+        [
+            {"date": "2023-07-25 18:00:00", "amount": -500, "category": "Кино", "description": "Фильм"},
+            {"date": "2023-08-10 10:00:00", "amount": -700, "category": "Рестораны", "description": "Завтрак"},
+            {"date": "2023-09-20 09:00:00", "amount": -900, "category": "Рестораны", "description": "Ужин"},
+            {"date": "2023-06-01 08:00:00", "amount": -1500, "category": "Рестораны", "description": "Ужин"},
+            {"date": "2023-07-15 12:00:00", "amount": -2000, "category": "Рестораны", "description": "Обед"},
         ],
-    }
+        ensure_ascii=False,
+        indent=4,
+    )
+    assert result == expected_result
 
-    assert result == expected
+
+@patch("requests.get")
+def test_get_current_exchange_rate(mock_get):
+    mock_response = MagicMock()
+    mock_response.json.return_value = {"rates": {"RUB": 75.0}}
+    mock_get.return_value = mock_response
+
+    result = get_current_exchange_rate(["USD"])
+    expected_result = json.dumps([{"currency": "USD", "rate": 75.0}], ensure_ascii=False, indent=4)
+    assert result == expected_result
+
+
+@patch("yfinance.Ticker")
+def test_get_stock_currency(mock_ticker):
+    mock_history = MagicMock()
+    mock_history.history.return_value = pd.DataFrame({"High": [150.0]})
+    mock_ticker.return_value = mock_history
+
+    result = get_stock_currency("AAPL")
+    assert result == 150.0

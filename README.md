@@ -15,7 +15,7 @@
 
 1. Клонируйте репозиторий:
     ```sh
-    git clone https://github.com/Maurdihen/analyzer_banking_operations.git
+    git clone https://github.com/most-impact/CourseWork3.git
     cd analyzer_banking_operations
     ```
 

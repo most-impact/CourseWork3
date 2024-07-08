@@ -1,16 +1,14 @@
+from unittest.mock import patch
+
 import pandas as pd
-import pytest
-from unittest.mock import patch, mock_open
+
 from src.utils import read_xls_file
 
 
 # Мок для pd.read_excel
 @patch("pandas.read_excel")
 def test_read_xls_file(mock_read_excel):
-    mock_data = pd.DataFrame({
-        "Колонка1": [1, 2, 3],
-        "Колонка2": ["а", "б", "в"]
-    })
+    mock_data = pd.DataFrame({"Колонка1": [1, 2, 3], "Колонка2": ["а", "б", "в"]})
     mock_read_excel.return_value = mock_data
 
     filename = "mocked_file.xlsx"

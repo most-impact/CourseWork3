@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74800195-ad5f-477f-89de-8aee4d8bd959" name="Changes" comment="fix bugs">
+      <change afterPath="$PROJECT_DIR$/mypy.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
@@ -18,6 +19,7 @@
       <change beforePath="$PROJECT_DIR$/tests/test_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/user_settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +64,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for test_reports.test_filter_transactions_empty_result.executor": "Run",
+    "Python tests.Python tests for test_reports.test_spending_by_category_custom_date.executor": "Run",
+    "Python tests.Python tests for test_reports.test_spending_by_category_default_date.executor": "Run",
+    "Python tests.Python tests for test_reports.test_spending_by_category_no_results.executor": "Run",
     "Python tests.Python tests for test_services.test_search_by_request_match.executor": "Run",
+    "Python tests.Python tests for test_services.test_simple_searching.executor": "Run",
     "Python tests.Python tests for test_services.test_simple_searching_category.executor": "Run",
     "Python tests.Python tests for test_utils.test_read_xls_file.executor": "Run",
     "Python tests.Python tests for test_views.test_get_card_data.executor": "Run",
     "Python tests.Python tests for test_views.test_get_top_transactions_by_date.executor": "Run",
+    "Python tests.Python tests for test_views.test_greeting.executor": "Run",
     "Python tests.Python tests for test_views.test_main_page.executor": "Run",
     "Python tests.Python tests in test_reports.py.executor": "Run",
+    "Python tests.Python tests in test_services.py.executor": "Run",
     "Python tests.Python tests in test_views.py.executor": "Run",
     "Python.main.executor": "Run",
     "Python.reports.executor": "Run",
@@ -85,8 +94,8 @@
       <recent name="C:\Users\Dmitriy\PycharmProjects\CourseWork3\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Python tests in test_views.py">
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CourseWork3" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -99,28 +108,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/views.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_views.test_get_card_data" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="CourseWork3" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_views.test_get_card_data&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests for test_views.test_get_top_transactions_by_date" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -135,6 +129,21 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_views.test_get_top_transactions_by_date&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_views.test_greeting" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="CourseWork3" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_views.test_greeting&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -170,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python tests.Python tests for test_views.test_get_card_data" />
-        <item itemvalue="Python tests.Python tests for test_views.test_get_top_transactions_by_date" />
         <item itemvalue="Python tests.Python tests in test_views.py" />
+        <item itemvalue="Python.views" />
+        <item itemvalue="Python tests.Python tests for test_views.test_get_top_transactions_by_date" />
         <item itemvalue="Python tests.Python tests for test_views.test_main_page" />
+        <item itemvalue="Python tests.Python tests for test_views.test_greeting" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720161130375</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix bugs">
+      <option name="closed" value="true" />
+      <created>1720258062498</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720258062498</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
