@@ -19,13 +19,13 @@ logger = setup_logger()
 def get_time_now() -> str:
     """Возвращает приветствие по текущему времени"""
     time = datetime.now()
-    if 21 < time.hour <= 5:
+    if 21 < time.hour or time.hour <= 5:
         return "Доброй ночи"
-    elif 5 < time.hour <= 10:
+    elif 5 < time.hour or time.hour <= 10:
         return "Доброе утро"
-    elif 10 < time.hour <= 17:
+    elif 10 < time.hour or time.hour <= 17:
         return "Добрый день"
-    elif 17 < time.hour <= 21:
+    elif 17 < time.hour or time.hour <= 21:
         return "Добрый вечер"
     else:
         return ""

@@ -13,10 +13,15 @@ def spending_by_category(transactions: pd.DataFrame, category: str, date: Option
     if date is None:
         date = datetime.now().strftime("%d.%m.%Y")
     end_date = datetime.strptime(date, "%d.%m.%Y") - timedelta(days=90)
-    filtered_transactions = transactions[
-        (transactions["category"] == category)
-        & (transactions["data_payment"] >= date)
-        & (transactions["data_payment"] < end_date.strftime("d.%m.%Y"))
-    ]
-    logger.error("Функция spending_by_category выполнена успешно")
-    return filtered_transactions
+    category = category.title()
+    if category in transactions:
+        filtered_transactions = transactions[
+            (transactions["category"] == category)
+            & (transactions["data_payment"] >= date)
+            & (transactions["data_payment"] < end_date.strftime("d.%m.%Y"))
+        ]
+        logger.error("Функция spending_by_category выполнена успешно")
+        return filtered_transactions
+    else:
+        logger.error("В функции spending_by_category что-то пошло не так")
+        return pd.DataFrame()

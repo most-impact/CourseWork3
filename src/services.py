@@ -28,5 +28,5 @@ def simple_searching(searching_str: str, transactions: list[dict[Hashable, Any]]
         print("Некорректный ответ")
         logger.info("Пользователь ввел некорректные данные в функции simple_searching")
         return simple_searching(searching_str, transactions, user_value)
-    logger.error("Функция simple_searching выполнена успешно")
+    logger.error("В функции simple_searching выполнена успешно")
     return json.dumps(result, ensure_ascii=False, indent=4)

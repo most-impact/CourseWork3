@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74800195-ad5f-477f-89de-8aee4d8bd959" name="Changes" comment="fix bugs">
-      <change afterPath="$PROJECT_DIR$/mypy.ini" afterDir="false" />
+    <list default="true" id="74800195-ad5f-477f-89de-8aee4d8bd959" name="Changes" comment="final part">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reports.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/reports.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_reports.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_reports.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/user_settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,39 +53,83 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test_reports.test_filter_transactions_empty_result.executor": "Run",
-    "Python tests.Python tests for test_reports.test_spending_by_category_custom_date.executor": "Run",
-    "Python tests.Python tests for test_reports.test_spending_by_category_default_date.executor": "Run",
-    "Python tests.Python tests for test_reports.test_spending_by_category_no_results.executor": "Run",
-    "Python tests.Python tests for test_services.test_search_by_request_match.executor": "Run",
-    "Python tests.Python tests for test_services.test_simple_searching.executor": "Run",
-    "Python tests.Python tests for test_services.test_simple_searching_category.executor": "Run",
-    "Python tests.Python tests for test_utils.test_read_xls_file.executor": "Run",
-    "Python tests.Python tests for test_views.test_get_card_data.executor": "Run",
-    "Python tests.Python tests for test_views.test_get_top_transactions_by_date.executor": "Run",
-    "Python tests.Python tests for test_views.test_greeting.executor": "Run",
-    "Python tests.Python tests for test_views.test_main_page.executor": "Run",
-    "Python tests.Python tests in test_reports.py.executor": "Run",
-    "Python tests.Python tests in test_services.py.executor": "Run",
-    "Python tests.Python tests in test_views.py.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.reports.executor": "Run",
-    "Python.services.executor": "Run",
-    "Python.utils.executor": "Run",
-    "Python.views.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_reports.test_filter_transactions_empty_result.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_reports.test_spending_by_category_custom_date.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_reports.test_spending_by_category_default_date.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_reports.test_spending_by_category_no_results.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_services.test_search_by_request_match.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_services.test_simple_searching.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_services.test_simple_searching_category.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_utils.test_read_xls_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_get_card_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_get_top_transactions_by_date.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_greeting.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_main_page.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_reports.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_services.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_views.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.reports.executor&quot;: &quot;Run&quot;,
+    &quot;Python.services.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;Python.views.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Dmitriy\PycharmProjects\CourseWork3\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in test_views.py">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CourseWork3" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CourseWork3" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CourseWork3" />
       <option name="ENV_FILES" value="" />
@@ -132,36 +167,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_views.test_greeting" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="CourseWork3" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_views.test_greeting&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_views.test_main_page" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="CourseWork3" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_views.test_main_page&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Python tests in test_views.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="CourseWork3" />
       <option name="ENV_FILES" value="" />
@@ -179,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in test_views.py" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.utils" />
         <item itemvalue="Python.views" />
+        <item itemvalue="Python tests.Python tests in test_views.py" />
         <item itemvalue="Python tests.Python tests for test_views.test_get_top_transactions_by_date" />
-        <item itemvalue="Python tests.Python tests for test_views.test_main_page" />
-        <item itemvalue="Python tests.Python tests for test_views.test_greeting" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720258062498</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="final part">
+      <option name="closed" value="true" />
+      <created>1720442662144</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720442662145</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,6 +248,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bugs" />
+    <MESSAGE value="final part" />
+    <option name="LAST_COMMIT_MESSAGE" value="final part" />
   </component>
 </project>
